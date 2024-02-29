@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+	<style>
+		.figure {
+		  /* Set a maximum width of 50% of the container */
+		  max-width: 50%;
+		  /* Maintain aspect ratio using the object-fit property */
+		  object-fit: contain;
+		  /* Center the image horizontally using margin: 0 auto */
+		  margin: 0 auto;
+		}
+	  </style>
+	  </style>
+	  
+</head>
+
+<body>
+
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Design
+		</h1>
+
+		<p>
+			<strong>Eva Richter</strong> — <em>evaricht@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Phase One: Sketching Visualizations</h2>
+
+      <figure>
+				<img src="0001.png" alt="" width="80%" />
+				<figcaption>
+					Sketch 1
+				</figcaption>
+			</figure>
+
+			<p>
+				Rationale: 
+				
+				
+			</p>
+
+			<ul>
+				<li>For this visualization, I had the idea of creating a radial bar chart to 
+					visualize each age category and then comparatively place the radial bar chart of 1900 next to the 
+					bar chart of 2000. This would show not only the population difference but also how the sizes of the 
+					age groups evolved. Crucially, I aggregated the male/female category for this design, 
+					as I thought it would add too much confusion and wasn’t necessary to answer the question I had posed. </li>
+				<li>I liked this design, because I thought that the radial bar charts resembled the age rings of a tree. </li>
+				<li> Unfortunately, there are a few things that didn’t work at all about this chart. 
+					Radial charts are very good at communicating percentages but not absolute numbers. 
+					Since the rings have different sizes, it is very difficult to compare the sizes of the rings for each chart. I later realized that I have to normalize the data according to the largest number in the 2000 chart, which would then look a little strange for the 1900 chart. </li>
+			</ul>
+
+      <figure>
+				<img src="0002.png" alt="" width="80%"  />
+				<figcaption>
+          Sketch 2
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 2:
+			</p>
+
+			<ul>
+				<li>In this sketch, I reintroduced the sex category that is present in the dataset. I thought it would be interesting to see the number of people in each age and sex category represented as a circle, moving upward as the age increases. I even thought about animation, but abandoned the idea. </li>
+				<li>I created the chart in this way because I thought that it would be easy to compare the sizes of the circles for men, women and in the different year. I liked how the y axis represented age, with older ages being higher in the visualization. </li>
+				<li>When I created the sketch, I didn’t think about scale at all. The 2000 circles are much bigger than the 1900 circles and it is actually quit difficult to figure out the scale of this visualizations so that the 1900 numbers are still visible. For this visualization, it is actually quite difficult to see what the numbers actually are (unless there is a mouseover or something). I also ended up inverting the x and y axis later, as my original plot was shaped in a very impractical way. </li>
+			</ul>
+
+      <figure>
+				<img src="0003.png" alt="" width="80%"  />
+				<figcaption>
+          Sketch 3
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 3:
+			</p>
+
+			<ul>
+				<li>
+					Here, I wanted to create a violin plot, as demographic data is often represented this way. Violin plots are very useful to demonstrate the “shape” of a population (which age group is bigger/smaller compared to another)
+					</li>
+				<li>What I found when making this sketch is that (1) I was a bit bored by this chart, as I’ve often seen demographic data presented this way (2) It is a bit difficult to incorporate male/female categories in a static visualization </li>
+
+			</ul>
+
+      <h3>Reflection</h3>
+
+      <p>
+        Sketching prototypes by hand was a very useful exercise that I’ll continue to do for future visualizations. Visually, I liked the radial bar chart the most and I spent a bit of time making it into a prototype in d3 before I realized the limitations of it and switched to a different sketch. Interestingly, all three of my sketches make visualizations that are not very precise in that there is a focus on the absolute number of people that were in each category at a point in time. All of them prioritize visual comparison of rough numbers over precise estimations. I thought the violin plot is a useful tool to visualize demographic data, but I found that it didn’t directly answer my question (how many people of each category existed in 1900 vs. 2000 in the US), as it puts a visual focus on demographic patterns (are there more older people than younger people, is the social contract in tact, etc). The radial bar chart also make it difficult to directly compare categories. I found that the bubble chart is the chart that most directly answers my question. 
+      </p>
+
+		</section>
+
+		<section>
+			<h2>Phase 1.5: Intermediate Prototypes</h2>
+
+			<figure>
+				<img src="intermediate_prototype.png" alt=""  width="80%"/>
+				<figcaption>
+				Intermediate prototype that I discarded because the radial nature of the chart makes comparison of absolute numbers difficult. 
+							</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Phase Two: Final Design</h2>
+
+			<figure>
+				<img src="final_design.png" alt="" width="100%" />
+				<figcaption>
+				Final design
+				</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Design Process & Design Decisions</h2>
+
+			<p>
+				This chart went through a few iterations. At first, the categories were on the x axis and the circles ‘bubbled up’ the y axis. I liked this visually, but it created an awkwardly shaped plot, as I also had to make sure the spacing between the categories on the x axis weren’t too wide, the circles weren’t too close together and the circles from 2000 and 1900 were in the right relation to each other. This is an issue, which I hadn’t anticipated in my sketch. Still, I think although this chart is good at comparing population sizes for different groups and men and women in 1900 and 2000, it is still really hard to see what the actual numbers are. I experimented with putting a label over each circle but found that this made the chart too crowded. For an interactive visualization, I would probably solve this with a mouseover feature.  
+      </p>
+
+
+      <h3>Reflection</h3>
+
+      <p>
+		<strong>Encoding: </strong>
+		With this visualization, I wanted a viewer to see compare demographics both within a year and across time. The size shows how much the US population has grown within a century. The age brackets are more a gridline than precise categories. I placed the circles in the middle of each age bracket to show that they represent a group of people in that category. 
+		<br> 
+        <strong>Color scheme: </strong> 
+		The color scheme in this visualization intentionally codes women with shades of purple, men with shades of blue, 1900 with shades of grey, and 2000 with brighter colors. I used a color palette maker to choose a ‘purplish grey’ for women in 1900 and the much brighter version of that for women in 2000. I did the same for men in 1900 and 2000. 
+
+      </p>
+		</section>
+	
+	</main>
+</body>
+</html>
